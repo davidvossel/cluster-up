@@ -18,8 +18,6 @@ function prepare_config() {
     BASE_PATH=${KUBEVIRT_PATH:-$PWD}
     cat >hack/config-provider-$KUBEVIRT_PROVIDER.sh <<EOF
 master_ip=$(_main_ip)
-docker_tag=devel
-docker_tag_alt=devel_alt
 kubeconfig=${BASE_PATH}/cluster/$KUBEVIRT_PROVIDER/.kubeconfig
 kubectl=${BASE_PATH}/cluster/$KUBEVIRT_PROVIDER/.kubectl
 docker_prefix=localhost:$(_port registry)/kubevirt

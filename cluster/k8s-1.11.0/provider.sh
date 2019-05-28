@@ -4,7 +4,7 @@ set -e
 
 image="k8s-1.11.0@sha256:3412f158ecad53543c9b0aa8468db84dd043f01832a66f0db90327b7dc36a8e8"
 
-source cluster/ephemeral-provider-common.sh
+source ${KUBEVIRT_PATH}/cluster/ephemeral-provider-common.sh
 
 function up() {
     ${_cli} run $(_add_common_params)

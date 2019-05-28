@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-KUBEVIRT_DIR="$(
+KUBEVIRT_PATH="$(
     cd "$(dirname "$BASH_SOURCE[0]")/../"
-    pwd
+    echo "$(pwd)/"
 )"
 
 KUBEVIRT_PROVIDER=${KUBEVIRT_PROVIDER:-k8s-1.13.3}

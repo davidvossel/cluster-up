@@ -4,7 +4,7 @@ set -e
 
 image="okd-4.1.0-rc.0@sha256:7b5badcf46fceae521706161622ee447608d8ff84f831729ea98e061da49f4d7"
 
-source cluster/ephemeral-provider-common.sh
+source ${KUBEVIRT_PATH}/cluster/ephemeral-provider-common.sh
 
 function _port() {
     ${_cli} ports --prefix $provider_prefix --container-name cluster "$@"

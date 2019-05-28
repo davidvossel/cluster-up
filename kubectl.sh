@@ -19,13 +19,10 @@
 
 set -e
 
-source $(dirname "$0")/../hack/common.sh
+KUBEVIRT_PATH=${KUBEVIRT_PATH:-$(dirname "$0")/}
 
-source ${KUBEVIRT_DIR}/cluster/$KUBEVIRT_PROVIDER/provider.sh
-source ${KUBEVIRT_DIR}/hack/config.sh
+source ${KUBEVIRT_PATH}/hack/common.sh
+source ${KUBEVIRT_PATH}/cluster/$KUBEVIRT_PROVIDER/provider.sh
+source ${KUBEVIRT_PATH}/hack/config.sh
 
-if [ "$1" == "console" ] || [ "$1" == "vnc" ]; then
-    ${KUBEVIRT_DIR}/_out/cmd/virtctl/virtctl --kubeconfig=${kubeconfig} "$@"
-else
-    _kubectl "$@"
-fi
+_kubectl "$@"
