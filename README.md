@@ -1,12 +1,6 @@
-# cluster-up
-Local on demand multi-node k8s, ocp, okd clusters using pre-built immutable qemu images.
+# Getting Started with OKD Provider
 
-
-
-
-# Getting Started OKD
-
-Download repo
+Download cluster-up repo
 ```
 git clone https://github.com/davidvossel/cluster-up.git
 cd cluster-up
@@ -23,9 +17,20 @@ Stop okd cluster
 make cluster-down
 ```
 
-Using oc tool
+## Exploring OKD Cluster
+
+Use provider's OC client with oc.sh wrapper script
 ```
 ./oc.sh get nodes
+./oc.sh get pods --all-namespaces
+```
+
+Use your own OC client by defining the KUBECONFIG environment variable 
+```
+export KUBECONFIG=$(pwd)/_client-configs/$KUBEVIRT_PROVIDER/kubeconfig
+
+oc get nodes
+oc apply -f <some file>
 ```
 
 SSH into master
