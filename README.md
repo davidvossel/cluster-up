@@ -27,7 +27,7 @@ Use provider's OC client with oc.sh wrapper script
 
 Use your own OC client by defining the KUBECONFIG environment variable 
 ```
-export KUBECONFIG=$(pwd)/_client-configs/$KUBEVIRT_PROVIDER/kubeconfig
+export KUBECONFIG=$(./kubeconfig.sh)
 
 oc get nodes
 oc apply -f <some file>
