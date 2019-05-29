@@ -18,17 +18,14 @@ export KUBEVIRT_PROVIDER=okd-4.1.0
 make cluster-up
 ```
 
+Stop okd cluster
+```
+make cluster-down
+```
+
 Using oc tool
 ```
 ./oc.sh get nodes
-```
-
-Accessing OKD UI
-```
-#Add the following entry to etc/hosts
-sudo echo "127.0.0.1 console-openshift-console.apps.test-1.tt.testing" >> /etc/hosts
-sudo echo "127.0.0.1 oauth-openshift.apps.test-1.tt.testing" >> /etc/hosts
-sudo -E ./kubectl.sh port-forward -n openshift-console svc/console 443:443 
 ```
 
 SSH into master
@@ -39,4 +36,9 @@ SSH into master
 SSH into worker
 ```
 ./ssh worker-0
+```
+
+Accessing OKD UI
+```
+TODO - in the process of working out the details here. 
 ```
