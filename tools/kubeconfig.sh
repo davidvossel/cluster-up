@@ -14,15 +14,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Copyright 2017 Red Hat, Inc.
+# Copyright 2019 Red Hat, Inc.
 #
 
 set -e
 
-KUBEVIRT_PATH=${KUBEVIRT_PATH:-$(dirname "$0")/}
+
+KUBEVIRT_PATH="$(
+    cd "$(dirname "$BASH_SOURCE[0]")/../"
+    echo "$(pwd)/"
+)"
 
 source ${KUBEVIRT_PATH}/hack/common.sh
-source ${KUBEVIRT_PATH}/cluster/$KUBEVIRT_PROVIDER/provider.sh
-source ${KUBEVIRT_PATH}/hack/config.sh
 
-_kubectl "$@"
+echo "${KUBEVIRT_PATH}cluster/$KUBEVIRT_PROVIDER/.kubeconfig"

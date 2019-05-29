@@ -19,7 +19,9 @@
 
 set -e
 
-KUBEVIRT_PATH=${KUBEVIRT_PATH:-$(dirname "$0")/}
-source ${KUBEVIRT_PATH}/hack/common.sh
+KUBEVIRT_PATH="$(
+    cd "$(dirname "$BASH_SOURCE[0]")/../"
+    echo "$(pwd)/"
+)"
 
-echo "${KUBEVIRT_PATH}cluster/$KUBEVIRT_PROVIDER/.kubeconfig"
+$KUBEVIRT_PATH/tools/kubectl.sh "$@"
