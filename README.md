@@ -23,9 +23,10 @@ Using oc tool
 ./oc.sh get nodes
 ```
 
-Accessing UI
+Accessing OKD UI
 ```
-TODO
+#Add the following entry to etc/hosts
+echo "127.0.0.1 console-openshift-console.apps.test-1.tt.testing" >> etc/hosts
 ```
 
 SSH into master
