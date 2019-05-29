@@ -26,7 +26,9 @@ Using oc tool
 Accessing OKD UI
 ```
 #Add the following entry to etc/hosts
-echo "127.0.0.1 console-openshift-console.apps.test-1.tt.testing" >> etc/hosts
+sudo echo "127.0.0.1 console-openshift-console.apps.test-1.tt.testing" >> /etc/hosts
+sudo echo "127.0.0.1 oauth-openshift.apps.test-1.tt.testing" >> /etc/hosts
+sudo -E ./kubectl.sh port-forward -n openshift-console svc/console 443:443 
 ```
 
 SSH into master
