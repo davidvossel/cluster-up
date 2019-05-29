@@ -10,11 +10,13 @@ source ${KUBEVIRT_PATH}/cluster/$KUBEVIRT_PROVIDER/provider.sh
 source ${KUBEVIRT_PATH}/hack/config.sh
 
 ssh_key=${KUBEVIRT_PATH}/hack/common.key
+chmod 600 $ssh_key
+
 node=$1
 
 if [ -z "$node" ]; then
     echo "node name required as argument"
-    echo "okd example: ./ssh master"
+    echo "okd example: ./ssh master-0"
     echo "k8s example: ./ssh node01"
     exit 1
 fi
@@ -22,9 +24,9 @@ fi
 if [[ $provider_prefix =~ okd.* ]]; then
     ports=$($KUBEVIRT_PATH/cli.sh --prefix $provider_prefix ports --container-name cluster)
 
-    if [[ $node =~ worker.* ]]; then
+    if [[ $node =~ worker-0.* ]]; then
         port=$(echo "$ports" | grep 2202 | awk -F':' '{print $2}')
-    elif [[ $node =~ master.* ]]; then
+    elif [[ $node =~ master-0.* ]]; then
         port=$(echo "$ports" | grep 2201 | awk -F':' '{print $2}')
     fi
 
