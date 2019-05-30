@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-KUBEVIRT_PATH="$(
-    cd "$(dirname "$BASH_SOURCE[0]")/../"
-    echo "$(pwd)/"
-)"
+if [ -z "$KUBEVIRT_PATH" ]; then
+    KUBEVIRT_PATH="$(
+        cd "$(dirname "$BASH_SOURCE[0]")/../"
+        echo "$(pwd)/"
+    )"
+fi
 
 KUBEVIRT_PROVIDER=${KUBEVIRT_PROVIDER:-k8s-1.13.3}
 KUBEVIRT_NUM_NODES=${KUBEVIRT_NUM_NODES:-1}
