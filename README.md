@@ -21,13 +21,13 @@ make cluster-down
 
 Use provider's OC client with oc.sh wrapper script
 ```
-tools/oc.sh get nodes
-tools/oc.sh get pods --all-namespaces
+cluster/oc.sh get nodes
+cluster/oc.sh get pods --all-namespaces
 ```
 
 Use your own OC client by defining the KUBECONFIG environment variable 
 ```
-export KUBECONFIG=$(tools/kubeconfig.sh)
+export KUBECONFIG=$(cluster/kubeconfig.sh)
 
 oc get nodes
 oc apply -f <some file>
@@ -35,12 +35,12 @@ oc apply -f <some file>
 
 SSH into master
 ```
-tools/ssh.sh master-0
+cluster/ssh.sh master-0
 ```
 
 SSH into worker
 ```
-tools/ssh.sh worker-0
+cluster/ssh.sh worker-0
 ```
 
 Accessing OKD UI
