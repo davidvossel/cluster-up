@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Copyright 2017 Red Hat, Inc.
+# Copyright 2018 Red Hat, Inc.
 #
 
 set -e
@@ -24,13 +24,16 @@ KUBEVIRT_PATH="$(
     echo "$(pwd)/"
 )"
 
-source ${KUBEVIRT_PATH}/cluster-hack/common.sh
 source ${KUBEVIRT_PATH}/cluster/$KUBEVIRT_PROVIDER/provider.sh
 source ${KUBEVIRT_PATH}/cluster-hack/config.sh
 
-if [ "$1" == "console" ] || [ "$1" == "vnc" ]; then
-    ${KUBEVIRT_PATH}/_out/cmd/virtctl/virtctl --kubeconfig=${kubeconfig} "$@"
-else
-    _kubectl "$@"
+CONFIG_ARGS=
+
+if [ -n "$kubeconfig" ]; then
+    CONFIG_ARGS="--kubeconfig=${kubeconfig}"
+elif [ -n "$KUBECONFIG" ]; then
+    CONFIG_ARGS="--kubeconfig=${KUBECONFIG}"
 fi
+
+${KUBEVIRT_DIR}/_out/cmd/virtctl/virtctl $CONFIG_ARGS "$@"
 
