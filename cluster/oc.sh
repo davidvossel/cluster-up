@@ -24,4 +24,4 @@ KUBEVIRT_PATH="$(
     echo "$(pwd)/"
 )"
 
-$KUBEVIRT_PATH/tools/kubectl.sh "$@"
+$KUBEVIRT_PATH/cluster/kubectl.sh "$@"

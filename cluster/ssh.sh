@@ -25,7 +25,7 @@ if [ -z "$node" ]; then
 fi
 
 if [[ $provider_prefix =~ okd.* ]]; then
-    ports=$($KUBEVIRT_PATH/tools/cli.sh --prefix $provider_prefix ports --container-name cluster)
+    ports=$($KUBEVIRT_PATH/cluster/cli.sh --prefix $provider_prefix ports --container-name cluster)
 
     if [[ $node =~ worker-0.* ]]; then
         port=$(echo "$ports" | grep 2202 | awk -F':' '{print $2}')
