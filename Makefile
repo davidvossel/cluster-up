@@ -1,8 +1,8 @@
 cluster-up:
-	./cluster-providers/up.sh
+	./cluster/up.sh
 
 cluster-down:
-	./cluster-providers/down.sh
+	./cluster/down.sh
 
 .PHONY: \
 	cluster-up \
