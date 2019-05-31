@@ -35,5 +35,5 @@ elif [ -n "$KUBECONFIG" ]; then
     CONFIG_ARGS="--kubeconfig=${KUBECONFIG}"
 fi
 
-${KUBEVIRT_DIR}/_out/cmd/virtctl/virtctl $CONFIG_ARGS "$@"
+${KUBEVIRT_PATH}/_out/cmd/virtctl/virtctl $CONFIG_ARGS "$@"
 
