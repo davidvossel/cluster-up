@@ -1,4 +1,4 @@
-unset binaries docker_images docker_prefix master_ip network_provider kubeconfig manifest_docker_prefix 
+unset docker_prefix master_ip network_provider kubeconfig manifest_docker_prefix
 
 KUBEVIRT_PROVIDER=${KUBEVIRT_PROVIDER:-${PROVIDER}}
 
@@ -11,4 +11,4 @@ test -f "${KUBEVIRT_PATH}cluster-hack/config-provider-${KUBEVIRT_PROVIDER}.sh" &
 # to change the version controlled config-default.sh file
 test -f "${KUBEVIRT_PATH}cluster-hack/config-local.sh" && source ${KUBEVIRT_PATH}cluster-hack/config-local.sh
 
-export binaries docker_images docker_prefix master_ip network_provider kubeconfig manifest_docker_prefix 
+export docker_prefix master_ip network_provider kubeconfig manifest_docker_prefix
